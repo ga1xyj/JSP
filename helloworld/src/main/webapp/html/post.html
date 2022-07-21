@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html/post.html</title>
+</head>
+<body>
+	<h3>Post방식요청</h3>
+	<form action="../addMember" method='post'>
+		UserName: <input type="text" name = "user_name"><br>
+		PassWord: <input type="password" name="user_pass"><br>
+		Role: <select name="role">
+				<option value="0">관리자</option>
+				<option value="1">사용자</option>
+				</select>
+		<br>
+		<input type="submit" value="Send">
+	</form>
+	<script>
+	//form.submit -> 페이지 이동 기능
+	var frm = document.querySelector('form');
+	frm.addEventListener('submit', function(e){		
+		let name = document.querySelector('input[name="user_name"]').value;
+		let pass = document.querySelector('input[name="user_pass"]').value;
+		let role = document.querySelector('select[name="role"]').value;
+		
+		e.preventDefault();
+		if(name == 0||pass == 0||role == 0){		
+			alert("값을 입력하세요");
+			return;
+		}
+		this.submit();
+	})
+	console.log(frm)
+	</script>
+</body>
+</html>
