@@ -25,7 +25,7 @@
 		let role = document.querySelector('select[name="role"]').value;
 		
 		e.preventDefault();
-		if(name == 0||pass == 0||role == 0){		
+		if(name == ""||pass == ""||role == ""){		
 			alert("값을 입력하세요");
 			return;
 		}
