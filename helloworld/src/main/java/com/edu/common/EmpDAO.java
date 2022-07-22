@@ -1,4 +1,4 @@
-package com.edu;
+package com.edu.common;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 public class EmpDAO extends DAO{
 	//변경
-	public void updateMember(String name, String pass, String role) {
+	public boolean updateMember(String name, String pass, String role) {
 		String sql = "update members"
 					+" set member_password=?,"
 					+" member_role = ?"
@@ -19,14 +19,17 @@ public class EmpDAO extends DAO{
 			pstmt.setString(3, name);
 			int r = pstmt.executeUpdate();
 			System.out.println(r+"건 변경됨");
+			if(r>0)
+				return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconnect();
 		}
+		return false;
 	}
 	//user_name, user_pass, role -> 입력하는 기능
-	public void insertMember(String name, String pass, String role) {
+	public boolean insertMember(String name, String pass, String role) {
 		String sql = "insert into members values(?,?,?)";
 		connect();
 		try {
@@ -37,12 +40,15 @@ public class EmpDAO extends DAO{
 			//insert,update,delete
 			int r = pstmt.executeUpdate();
 			System.out.println(r+"건 입력됨");
+			if(r>0)
+				return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
+		return false;
 		
 	}
 	

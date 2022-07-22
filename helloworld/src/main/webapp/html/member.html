@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko"">
+<head>
+  <meta charset="UTF-8">
+  <title>회원정보</title>
+</head>
+<body>
+  <h3>회원정보</h3>
+  <form action="queryTest" method="post">
+  ID:<input type="text" name="id" value="user9"><br>
+  비밀번호:<input type="password" name="pwd" value="9999"><br>
+  이름:<input type="text" name="name" value="주은하"><br>
+  취미:<input type="checkbox" name="hobby" value="climbing" checked>등산
+  <input type="checkbox" name="hobby" value="sport">운동
+  <input type="checkbox" name="hobby" value="reading">독서
+  <input type="checkbox" name="hobby" value="traveling">여행<br>
+  성별:<input type="radio" name="gender" value="male">남자
+  <input type="radio" name="gender" value="female" checked>여자<br>
+  종교:<select name="religion">
+        <option value="christianity">기독교</option>
+        <option value="buddhism">불교</option>
+        <option value="catholicism">천주교</option>
+        <option value="atheism" selected>무교</option>
+      </select><br>
+      자기소개:<br>
+      <textarea name="introduction" cols="30" rows="10"></textarea><br>
+      <input type="submit" value="전송">
+      <input type="reset" value="초기화">
+      </form>
+    <script>
+      console.log(decodeURI("%ED%99%8D%EA%B8%B8%EB%8F%99"));
+      //원래타입으로 바꿔주는 함수
+      console.log(encodeURI("홍길동"));
+      let str = 'id=user9&pwd=9999&name=주은하&hobby=climbing&gender=female&religion=atheism&introduction=dd'
+      //원래 함수
+      let result = getParameter(str, 'pwd');
+      //9999읽어오기
+      function getParameter(querystring, param){
+        //querystring:원본 문자열
+        //param에서 해당되는 값을 쿼리스트링에서 찾아오기
+        
+        //str.indexOf(param) : 파람인덱스 
+        let params =[];
+        params = str.split('&');
+        for(let a of params){
+          if(a.indexOf(param)!=-1){
+            return a.substring(param.length+1);
+          }
+        }
+      }
+      console.log(result);
+    </script>
+</body>
+</html>

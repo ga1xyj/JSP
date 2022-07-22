@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>world.html</title>
+  <style>
+    #show {
+      width: 350px;
+      height: 370px;
+      background-color: mediumaquamarine;
+      text-align:center;
+    }
+    #show > span {
+      text-align:center;
+      display: inline-block;
+      width: 90px;
+      height: 25px;
+      background-color: lemonchiffon;
+      border: 1px solid cadetblue;
+      padding: 2px;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" name="userInput" id="userInput">
+  <div id="show"></div>
+  <script>
+    let words = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti et, nulla itaque possimus, laborum reiciendis voluptates, animi quam velit quo dolores voluptatem. Temporibus ipsam rerum cum, blanditiis porro at excepturi?'
+    let wordList = words.split(' ');
+    let show = document.getElementById('show');
+    for(let word of wordList){
+      let span = document.createElement('span');
+      //span 태그 만들기
+      span.innerText = word; //<span>Lorem</span>
+      show.append(span);
+    
+    let enterWord = document.querySelector('#userInput');
+    let spanTags = document.querySelectorAll('span');
+    userInput.onchange = deleteWord;
+
+    function deleteWord(){
+      for(var a of spanTags){
+        if(enterWord.value==a.innerText)
+           a.remove();
+           enterWord.value='';
+      }
+    }
+  
+    }
+  </script>
+</body>
+</html>
