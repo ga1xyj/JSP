@@ -26,6 +26,9 @@
 		<tr><th>조회수</th><td><%=vo.getCnt() %></td></tr>
 	</table>
 	<p />
+	
+	<a href="updateForm.jsp?bno=<%=vo.getBoardId() %>">수정화면</a>
+	<a href="deleteForm.jsp?bno=<%=vo.getBoardId() %>">삭제화면</a><br>
 	<a href="boardList.jsp">글목록</a>
 </body>
 </html>
