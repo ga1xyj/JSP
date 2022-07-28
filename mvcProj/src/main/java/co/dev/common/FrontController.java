@@ -28,6 +28,9 @@ public class FrontController extends HttpServlet {
 		mappings.put("/memberInsert.do", new MemberInsertcontroller());
 		mappings.put("/memberList.do", new MemberListController());
 		mappings.put("/memberSearch.do", new MemberSearchController());
+		mappings.put("/memberUpdate.do", new MemberUpdateController());
+		mappings.put("/memberDelete.do", new MemberDeleteController());
+		mappings.put("/memberJson.do", new MemberJsonController());
 	}
 
 	// 호출될때마다 실행되는 메소드

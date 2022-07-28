@@ -107,7 +107,7 @@ public class MemberDAO {
 				vo.setId(id);
 				vo.setMail(rs.getString("mail"));
 				vo.setName(rs.getString("name"));
-				vo.setPasswd(rs.getString("mail"));
+				vo.setPasswd(rs.getString("passwd"));
 				return vo;
 			}
 		} catch (SQLException e) {
@@ -116,5 +116,42 @@ public class MemberDAO {
 			disconnect();
 		}
 		return null;
+	}
+	
+	//수정
+	public void updateMember(MemberVO vo) {
+		String sql = "update member set name = ?, passwd = ?, mail = ? where id = ?";
+		connect();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getPasswd());
+			pstmt.setString(3, vo.getMail());
+			pstmt.setString(4, vo.getId());
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건 변경.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		
+		
+	}
+
+	public void deleteMember(String id) {
+		String sql = "delete member where id = ?";
+		connect();
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			int r = pstmt.executeUpdate();
+			System.out.println(r + "건 삭제.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();
+		}
+		
 	}
 }

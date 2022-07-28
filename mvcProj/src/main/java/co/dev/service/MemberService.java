@@ -32,4 +32,13 @@ public class MemberService {
 	public MemberVO getMember(String id) {
 		return dao.searchMember(id);
 	}
+	
+	//회원정보 수정
+	public void modifyMember(MemberVO vo) {
+		dao.updateMember(vo);
+	}
+	
+	public void removeMember(String id) {
+		dao.deleteMember(id);
+	}
 }

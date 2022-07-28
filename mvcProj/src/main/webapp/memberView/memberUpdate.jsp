@@ -20,7 +20,7 @@
 	<!-- vo에 값을 담음 -->
 	<c:choose>
 		<c:when test="${!empty vo }"><!-- 값이 있으면 -->
-			<form action="" method="post">
+			<form action="${pageContext.request.contextPath }/memberUpdate.do" method="post">
 				아이디: <input type="text" name="id" value="${vo.id }" readonly ><br>
 				비밀번호:<input type="text" name="passwd" value="${vo.passwd }"><br>
 				이름:<input type="text" name="name" value="${vo.name }"><br>
