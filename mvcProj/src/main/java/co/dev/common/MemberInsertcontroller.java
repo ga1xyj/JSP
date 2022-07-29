@@ -14,7 +14,7 @@ public class MemberInsertcontroller implements Controller {
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse resp) {
 		MemberService service = MemberService.getInstance();
-
+			//입력->뷰페이지
 			String id = req.getParameter("id");
 			String pw = req.getParameter("passwd");
 			String nm = req.getParameter("name");

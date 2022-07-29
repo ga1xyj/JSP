@@ -1,43 +1,29 @@
-package co.dev.common;
+package com.dev.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import co.dev.service.MemberService;
-import co.dev.vo.MemberVO;
 
-//서블릿
 public class FrontController extends HttpServlet {
 	String enc;
 	Map<String, Controller> mappings;
 	//controller값을 value로 가짐
-	
-
-	// 맨처음 실행되는 메소드
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		enc = config.getInitParameter("charset");
 		mappings = new HashMap<>();
-		mappings.put("/memberInsert.do", new MemberInsertcontroller());
-		mappings.put("/memberList.do", new MemberListController());
-		mappings.put("/memberSearch.do", new MemberSearchController());
-		mappings.put("/memberUpdate.do", new MemberUpdateController());
-		mappings.put("/memberDelete.do", new MemberDeleteController());
-		mappings.put("/memberJson.do", new MemberJsonController());
-		//ajax 입력
-		mappings.put("/addMemberAjax.do", new AddMemberAjaxController());
-		mappings.put("/removeMemberAjax.do", new RemoveMemberAjaxController());
+		mappings.put("/main.do", new MainController());
+		mappings.put("/second.do", new SecondController());
+		mappings.put("/chart.do", new ChartController());
+		mappings.put("/register.do", new RegisterController());
 	}
-
-	// 호출될때마다 실행되는 메소드
-	@Override
+	
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding(enc);
 		String uri = req.getRequestURI();

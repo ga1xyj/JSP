@@ -24,7 +24,7 @@ public class MemberSearchController implements Controller {
 			} else if (job.equals("update")) {
 				Utils.forward(req, resp, "memberView/memberUpdate.jsp");
 			} else if (job.equals("delete")) {
-				Utils.forward(req, resp, "memberView/meberDelete.jsp");
+				Utils.forward(req, resp, "memberView/memberDelete.jsp");
 			}
 			// id가 없다면 돌려보냄
 			return;
@@ -37,7 +37,7 @@ public class MemberSearchController implements Controller {
 		}
 		req.setAttribute("member", vo);
 
-		req.setAttribute("member", service.getMember(id));
+		//req.setAttribute("member", service.getMember(id));
 		if (job.equals("search")) {
 			Utils.forward(req, resp, "memberResult/memberSearchOutput.jsp");
 		} else if (job.equals("update")) {

@@ -38,7 +38,8 @@ public class MemberService {
 		dao.updateMember(vo);
 	}
 	
-	public void removeMember(String id) {
-		dao.deleteMember(id);
+	public boolean removeMember(String id) {
+		//dao.deleteMember(id);
+		return dao.deleteMember(id);
 	}
 }

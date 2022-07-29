@@ -32,7 +32,7 @@ public class MemberJsonController implements Controller {
 			jobj.addProperty("id", vo.getId());
 			//속성 넣어주기
 			jobj.addProperty("name", vo.getName());
-			jobj.addProperty("pass", vo.getPasswd());
+			jobj.addProperty("passwd", vo.getPasswd());
 			jobj.addProperty("mail", vo.getMail());
 			
 			//jary 추가
